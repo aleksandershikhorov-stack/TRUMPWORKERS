@@ -64,6 +64,6 @@ body.event-glitch .scene{animation:shake .38s steps(2) 1}body.event-glitch .cent
 const toast=document.getElementById('toast');let toastTimer;
 function notify(msg){toast.textContent=msg;toast.classList.add('show');document.body.classList.remove('event-glitch');void document.body.offsetWidth;document.body.classList.add('event-glitch');clearTimeout(toastTimer);toastTimer=setTimeout(()=>{toast.classList.remove('show');document.body.classList.remove('event-glitch')},1900)}
 document.querySelectorAll('.figure').forEach((el,i)=>el.addEventListener('click',()=>{const messages=[el.dataset.message,'SYSTEM ALERT // Vibe levels exceeding recommended limits.','NEW LORE UNLOCKED // The group chat is typing…'];notify(messages[Math.floor(Math.random()*messages.length)]);el.style.zIndex=8;setTimeout(()=>el.style.zIndex='',600)}));
-document.getElementById('copyCA').addEventListener('click',async()=>{const value=document.getElementById('caValue').textContent.trim();if(value==='________________'){notify('EDIT index.html TO ADD YOUR CA');return}try{await navigator.clipboard.writeText(value);notify('CA COPIED TO CLIPBOARD')}catch(e){notify('SELECT AND COPY THE CA TEXT')}});
+document.getElementById('copyCA').addEventListener('click',async()=>{const value=document.getElementById('caValue').textContent.trim();if(value==='________________'){notify('COPY!');return}try{await navigator.clipboard.writeText(value);notify('CA COPIED TO CLIPBOARD')}catch(e){notify('SELECT AND COPY THE CA TEXT')}});
 </script>
 </body></html>
